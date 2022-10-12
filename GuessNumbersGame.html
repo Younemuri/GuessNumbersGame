@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Up and Dowm Game</title>
+    <style>
+        .ui {
+            text-align: center;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        var ran = Math.floor(Math.random() * 100 + 1);
+        var inputValue;
+        
+        function buttonClick() {
+            inputValue = document.getElementById('number').value;
+            
+            if(ran > inputValue) {
+                console.log(ran);
+                alert('틀렸습니다. '+ inputValue +'보다 큰 수를 입력해주세요.');
+                document.getElementById('number').value = null;
+                
+            } else if(ran < inputValue) {
+                console.log(ran);
+                alert('틀렸습니다. '+ inputValue +'보다 작은 수를 입력해주세요.');
+                document.getElementById('number').value = null;
+            } else {
+                alert('축하합니다. 정답입니다.')
+            }
+        };
+
+        function buttonClick2() {
+            document.getElementById('number').value = null;
+            ran = Math.floor(Math.random() * 100 + 1);
+        };
+    </script>
+</head>
+<body>
+    <div class="ui">
+        <h1>숫자 맞추기 게임</h1>
+        <p>1 ~ 100수를 입력하세요.</p>
+        <input id="number" type="text">
+        <button onclick="buttonClick()">확인</button>
+        <button onclick="buttonClick2()">초기화</button>
+    </div>
+</body>
+</html>
